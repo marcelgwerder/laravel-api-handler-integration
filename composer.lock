@@ -740,7 +740,7 @@
             "dist": {
                 "type": "path",
                 "url": "/var/www/_packages/laravel-api-handler",
-                "reference": "924735e094462248e09b143ef4a1c0740b525543",
+                "reference": "2783849b8a1af02ddc47a0c80d0b2052aae3bae7",
                 "shasum": null
             },
             "require": {
@@ -750,7 +750,20 @@
                 "php": ">=7.1.0"
             },
             "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Marcelgwerder\\ApiHandler\\ApiHandlerServiceProvider"
+                    ],
+                    "aliases": {
+                        "ApiHandler": "Marcelgweder\\ApiHandler\\Facades\\ApiHandler"
+                    }
+                }
+            },
             "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
                 "psr-4": {
                     "Marcelgwerder\\ApiHandler\\": "src"
                 }

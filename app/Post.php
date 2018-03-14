@@ -3,13 +3,15 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Relation;
+use Marcelgwerder\ApiHandler\Contracts\ApiHandlerConfig;
 
-class Post extends Model
+class Post extends Model implements ApiHandlerConfig
 {
     /**
      * One to Many
      */
-    public function votes()
+    public function votes() : Relation
     {
         return $this->hasMany(Vote::class);
     }
@@ -17,7 +19,7 @@ class Post extends Model
     /**
      * Polymorphic
      */
-    public function comments()
+    public function comments() : Relation
     {
         return $this->morphMany(Comment::class, 'commentable');
     }
@@ -44,5 +46,12 @@ class Post extends Model
     public function extended()
     {
         return $this->hasOne(PostExtended::class);
+    }
+
+    public function mergeApiHandlerConfig(): array 
+    {
+        return [
+            'selectable' => ['id'],
+        ];
     }
 }

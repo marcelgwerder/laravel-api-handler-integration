@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 
 class CreatePostsTable extends Migration
 {
@@ -26,6 +27,8 @@ class CreatePostsTable extends Migration
             $table->text('content');
             $table->unsignedInteger('user_id');
         });
+
+        DB::statement('ALTER TABLE posts ADD FULLTEXT fulltext_index (title, content)');
     }
 
     /**

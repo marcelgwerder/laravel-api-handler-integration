@@ -22,6 +22,8 @@ Below are all the Laravel relationships and how they are covered by this integra
 
 ### One to One
 
+📖 [Laravel Docs](https://laravel.com/docs/master/eloquent-relationships#one-to-one)
+
 **Post::post_extended()**
 
 ```
@@ -36,6 +38,8 @@ post_extended
 
 ### One to Many
 
+📖 [Laravel Docs](https://laravel.com/docs/master/eloquent-relationships#one-to-many)
+
 **Post::votes()**
 ```
 posts
@@ -48,6 +52,8 @@ votes
 ```
 
 ### One to Many (Inverse)
+
+📖 [Laravel Docs](https://laravel.com/docs/master/eloquent-relationships#one-to-many-inverse)
 
 **Vote::post()**
 
@@ -63,6 +69,8 @@ posts
 
 
 ### Many to Many
+
+📖 [Laravel Docs](https://laravel.com/docs/master/eloquent-relationships#many-to-many)
 
 **Post::tags()**
 
@@ -81,6 +89,8 @@ tags
 ```
 
 ### Has Many Through
+
+📖 [Laravel Docs](https://laravel.com/docs/master/eloquent-relationships#has-many-through)
 
 **Country::posts()**
 
@@ -101,7 +111,45 @@ posts
 
 ### Polymorphic
 
+📖 [Laravel Docs](https://laravel.com/docs/master/eloquent-relationships#polymorphic-relations)
 
+**Post::comments()** or **Video::comments()**
+
+```
+posts
+    id - integer
+    ...
+
+videos
+    id - integer
+    ...
+
+comments
+    ...
+    commentable_id - integer
+    commentable_type - string
+```
 
 ### Many to Many Polymorphic
 
+📖 [Laravel Docs](https://laravel.com/docs/master/eloquent-relationships#many-to-many-polymorphic-relations)
+
+**Post::tagsPoly()** or **Video::tagsPoly()**
+```
+posts
+    id - integer
+    ...
+
+videos
+    id - integer
+    ...
+
+tags
+    id - string
+    ...
+
+taggables
+    tag_id - string
+    taggable_id - integer
+    taggable_type - string
+```
