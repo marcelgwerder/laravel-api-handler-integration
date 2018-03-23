@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "60a18c77cd96ed046881c65a067bdef4",
+    "content-hash": "d9a165a2c0cca3f50f1879a99a69fcba",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -740,7 +740,7 @@
             "dist": {
                 "type": "path",
                 "url": "/var/www/_packages/laravel-api-handler",
-                "reference": "2783849b8a1af02ddc47a0c80d0b2052aae3bae7",
+                "reference": "bc77ecce102d4a4d9f30b32669640d673c0f77cf",
                 "shasum": null
             },
             "require": {
@@ -748,6 +748,11 @@
                 "illuminate/http": "~5.5",
                 "illuminate/support": "~5.5",
                 "php": ">=7.1.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "~1.0",
+                "orchestra/testbench": "~3.6",
+                "phpunit/phpunit": "~7.0"
             },
             "type": "library",
             "extra": {
@@ -767,6 +772,16 @@
                 "psr-4": {
                     "Marcelgwerder\\ApiHandler\\": "src"
                 }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Marcelgwerder\\ApiHandler\\Tests\\": "tests/"
+                }
+            },
+            "scripts": {
+                "test": [
+                    "phpunit --colors=always"
+                ]
             },
             "license": [
                 "MIT"

@@ -1,20 +1,29 @@
-# Laravel Api Handler Integration
+# Laravel API Handler Integration
 
 This project provides the basic Laravel and database setup needed to develop and test the Laravel Api Handler. It also serves as an extended source of examples.
 
 **CURRENTLY IN DEVELOPMENT ALONG WITH API HANDLER V1.0**
 
-- [Api](#api)
+- [Setup](#setup)
+- [Demo](#demo)
 - [Relationships](#relationships)
 
-## Api
+## Setup
 
-[GET] /api/posts 
+Setup the project by configuring your database in `.env` and running the following commands:
 
-[GET] /api/posts/{id}
+```
+composer install &&
+php artisan migrate --seed
+```
 
+## Demo
 
+You can check out the demo by running the following command and visiting the given url:
 
+```
+php artisan serve
+```
 
 ## Relationships
 

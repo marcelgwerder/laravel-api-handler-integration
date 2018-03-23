@@ -1,7 +1,9 @@
 <?php
 
 return [
-    'selectable' => ['id', 'title', 'search_score'],
+    'selectable' => ['*'],
     'expandable' => ['*'],
+    'filterable' => ['*'],
+    'sortable' => ['*'],
     'default_page_size' => 10,
 ];

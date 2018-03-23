@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use Exception;
+use Marcelgwerder\ApiHandler\Exceptions\ApiHandlerException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
@@ -35,7 +36,7 @@ class Handler extends ExceptionHandler
      * @return void
      */
     public function report(Exception $exception)
-    {
+    {        
         parent::report($exception);
     }
 
@@ -48,6 +49,13 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        if ($exception instanceof ApiHandlerException) {
+            return response()->json([
+                'code' => (new \ReflectionClass($exception))->getShortName(),
+                'message' => $exception->getMessage()
+            ], 400);
+        }
+
         return parent::render($request, $exception);
     }
 }
